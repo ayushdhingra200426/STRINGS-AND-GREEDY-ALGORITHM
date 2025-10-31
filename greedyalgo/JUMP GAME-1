@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+  public:
+    bool canReach(vector<int> &arr) {
+        int n = arr.size();
+        int maxindex = 0;
+        for (int i = 0; i < n; i++) {
+            if (i > maxindex) return false;
+            maxindex = max(maxindex, i + arr[i]);
+        }
+        return true;
+    }
+};
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    Solution obj;
+    if (obj.canReach(arr))
+        cout << "true" << endl;
+    else
+        cout << "false" << endl;
+
+    return 0;
+}
